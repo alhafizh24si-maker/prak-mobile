@@ -69,5 +69,6 @@ class kalkulator : AppCompatActivity() {
                 tvHasilRuang.text = "Mohon isi panjang sisi!"
             }
         }
+
     }
 }
