@@ -12,6 +12,7 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.Hafizhcool">
         <activity
+
             android:name=".kalkulator"
             android:exported="true">
             <intent-filter>
