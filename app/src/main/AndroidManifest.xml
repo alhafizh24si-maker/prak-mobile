@@ -12,9 +12,13 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.Hafizhcool">
         <activity
-
-
+            android:name=".LoginResultActivity"
+            android:exported="false" />
+        <activity
             android:name=".kalkulator"
+            android:exported="false" />
+        <activity
+            android:name=".LoginActivity"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -24,7 +28,7 @@
         </activity>
         <activity
             android:name=".MainActivity"
-            android:exported="false">
-        </activity>
+            android:exported="false" />
     </application>
+
 </manifest>
