@@ -16,20 +16,33 @@ class kalkulator : AppCompatActivity() {
         enableEdgeToEdge()
         setContentView(R.layout.activity_kalkulator)
 
-        // Mengatur padding agar UI tidak tertutup Status Bar/Navigasi (Edge-to-Edge)
         ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main)) { v, insets ->
             val systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars())
             v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom)
             insets
         }
 
-        // --- INISIALISASI KOMPONEN BANGUN DATAR (JAJAR GENJANG) ---
+        // --- 1. TANGKAP DATA INTENT DI SINI ---
+        val judul = intent.getStringExtra("EXTRA_TITLE")
+        val desc = intent.getStringExtra("EXTRA_DESC")
+
+        // Hubungkan ke ID yang ada di layout XML (activity_kalkulator.xml)
+        val tvJudul = findViewById<TextView>(R.id.tvTitleHalaman)
+        val tvDeskripsi = findViewById<TextView>(R.id.tvDescHalaman)
+
+        // Set teksnya
+        tvJudul.text = judul
+        tvDeskripsi.text = desc
+
+        Log.e("Data Intent", "Halaman: $judul | Deskripsi: $desc")
+
+
+        // --- 2. INISIALISASI KOMPONEN HITUNGAN (Sesuai kode kamu) ---
         val etAlas = findViewById<EditText>(R.id.etAlas)
         val etTinggi = findViewById<EditText>(R.id.etTinggi)
         val btnHitungDatar = findViewById<Button>(R.id.btnHitungDatar)
         val tvHasilDatar = findViewById<TextView>(R.id.tvHasilDatar)
 
-        // --- INISIALISASI KOMPONEN BANGUN RUANG (KUBUS) ---
         val etSisi = findViewById<EditText>(R.id.etSisi)
         val btnHitungRuang = findViewById<Button>(R.id.btnHitungRuang)
         val tvHasilRuang = findViewById<TextView>(R.id.tvHasilRuang)
@@ -43,10 +56,7 @@ class kalkulator : AppCompatActivity() {
                 val alas = alasStr.toDouble()
                 val tinggi = tinggiStr.toDouble()
                 val luas = alas * tinggi
-
                 tvHasilDatar.text = "Hasil Luas: $luas"
-
-                // Praktikum Logcat: Mencatat hasil ke Logcat (Debug)
                 Log.d("PENGHITUNG_APP", "Menghitung Jajar Genjang: $alas * $tinggi = $luas")
             } else {
                 tvHasilDatar.text = "Mohon isi semua input!"
@@ -60,10 +70,7 @@ class kalkulator : AppCompatActivity() {
             if (sisiStr.isNotEmpty()) {
                 val sisi = sisiStr.toDouble()
                 val volume = sisi * sisi * sisi
-
                 tvHasilRuang.text = "Hasil Volume: $volume"
-
-                // Praktikum Logcat: Mencatat hasil ke Logcat (Info)
                 Log.i("PENGHITUNG_APP", "Menghitung Volume Kubus: $sisi^3 = $volume")
             } else {
                 tvHasilRuang.text = "Mohon isi panjang sisi!"

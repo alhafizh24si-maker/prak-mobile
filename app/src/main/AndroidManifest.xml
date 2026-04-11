@@ -12,6 +12,12 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.Hafizhcool">
         <activity
+            android:name=".CustomTwoActivity"
+            android:exported="false" />
+        <activity
+            android:name=".CustomOneActivity"
+            android:exported="false" />
+        <activity
             android:name=".LoginResultActivity"
             android:exported="false" />
         <activity
